@@ -21,7 +21,7 @@ namespace robot_maze_map
 
         private MapBlock[,] _map = new MapBlock[mapSize, mapSize] ;
 
-        Map()
+        public Map()
         {
             initMapArray();
             BuildWalls();

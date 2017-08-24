@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "robot-maze", "robot-maze\robot-maze.csproj", "{9FBB223E-76C7-43A2-A8F9-286596151C16}"
+	ProjectSection(ProjectDependencies) = postProject
+		{118A5936-FC00-45BE-939E-93087CD6BDB4} = {118A5936-FC00-45BE-939E-93087CD6BDB4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "robot-maze-map", "robot-maze-map\robot-maze-map.csproj", "{118A5936-FC00-45BE-939E-93087CD6BDB4}"
 EndProject

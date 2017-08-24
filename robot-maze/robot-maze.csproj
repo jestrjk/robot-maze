@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\robot-maze-map\robot-maze-map.csproj">
+      <Project>{118a5936-fc00-45be-939e-93087cd6bdb4}</Project>
+      <Name>robot-maze-map</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

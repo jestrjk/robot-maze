@@ -4,3 +4,12 @@ C:\Users\Jake\Source\Repos\robot-maze\robot-maze\bin\Debug\robot-maze.pdb
 C:\Users\Jake\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.csproj.CoreCompileInputs.cache
 C:\Users\Jake\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.exe
 C:\Users\Jake\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.pdb
+C:\Source\Repos\robot-maze\robot-maze\bin\Debug\robot-maze.exe.config
+C:\Source\Repos\robot-maze\robot-maze\bin\Debug\robot-maze.exe
+C:\Source\Repos\robot-maze\robot-maze\bin\Debug\robot-maze.pdb
+C:\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.csproj.CoreCompileInputs.cache
+C:\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.exe
+C:\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.pdb
+C:\Source\Repos\robot-maze\robot-maze\obj\Debug\robot-maze.csprojResolveAssemblyReference.cache
+C:\Source\Repos\robot-maze\robot-maze\bin\Debug\robot-maze-map.dll
+C:\Source\Repos\robot-maze\robot-maze\bin\Debug\robot-maze-map.pdb
