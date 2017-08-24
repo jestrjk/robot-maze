@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\robot-maze"
+    "\\robot-maze",
+    "\\robot-maze-map"
   ],
   "SelectedNode": "\\robot-maze",
   "PreviewInSolutionExplorer": false
