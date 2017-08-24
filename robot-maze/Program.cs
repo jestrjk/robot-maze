@@ -12,10 +12,42 @@ namespace robot_maze
     {
         static void Main(string[] args)
         {
+            do
+            {
+                robot_maze_map.Map _map = new Map();
 
-            robot_maze_map.Map _map  = new Map();
+                DisplayMap(_map);
+            }
+            while (Console.ReadKey().KeyChar != 'q');
 
-            Console.WriteLine("HELLO FROM ROBOT MAZE OK?");
+
+            
+        }
+
+        private static void DisplayMap(Map map)
+        {
+            foreach ( Map.MapBlock block in map )
+            {
+                Console.SetCursorPosition(block.Coordinates.X, block.Coordinates.Y);
+
+                string displayCharacter = "E";
+                switch ( block.Type )
+                {
+                    case Map.MapBlockType.Empty:
+                        displayCharacter = ".";
+                        break;
+                    case Map.MapBlockType.Wall :
+                        displayCharacter = "#";
+                        break;
+                    case Map.MapBlockType.Buttcrack:
+                        displayCharacter = "B";
+                        break;
+                }
+
+                Console.Write(displayCharacter);
+            }
+
+            Console.Out.Flush();
         }
     }
 }
