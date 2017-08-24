@@ -1,2 +1,6 @@
 C:\Users\Jake\Source\Repos\robot-maze\robot-maze-map\obj\Debug\robot-maze-map.csprojResolveAssemblyReference.cache
 C:\Users\Jake\Source\Repos\robot-maze\robot-maze-map\obj\Debug\robot-maze-map.csproj.CoreCompileInputs.cache
+C:\Users\Jake\Source\Repos\robot-maze\robot-maze-map\bin\Debug\robot-maze-map.dll
+C:\Users\Jake\Source\Repos\robot-maze\robot-maze-map\bin\Debug\robot-maze-map.pdb
+C:\Users\Jake\Source\Repos\robot-maze\robot-maze-map\obj\Debug\robot-maze-map.dll
+C:\Users\Jake\Source\Repos\robot-maze\robot-maze-map\obj\Debug\robot-maze-map.pdb
