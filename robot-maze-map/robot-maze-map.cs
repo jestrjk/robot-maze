@@ -21,6 +21,10 @@ namespace robot_maze_map
         public enum MapBlockType
         {
             Empty,
+            Soil,
+            Grass,
+            Bush,
+            Tree,
             Wall,
             Buttcrack
         }
@@ -61,6 +65,52 @@ namespace robot_maze_map
             public int Y { get; set; }
         }
 
+        public void AgeMap( int ticks = 1)
+        {
+            foreach ( MapBlock block in this )
+            {
+
+            }
+        }
+
+        public List<MapBlock> SurroundingBlocks( MapBlockCoordinates currentCoords, int radius )
+        {
+            double radiusSquared = Math.Pow( radius, 2 ) ;
+
+            List<MapBlock> surroundingBlocks = new List<MapBlock>();
+
+            int xStart = currentCoords.X - radius;
+            int yStart = currentCoords.Y - radius;
+            int xEnd = currentCoords.X + radius;
+            int yEnd = currentCoords.Y + radius;
+
+            for ( int x = xStart; x <= xEnd; x++ )
+                for ( int y = yStart; y <= yEnd; y++ )
+                {
+                    double dxSquared = Math.Pow( (currentCoords.X - x), 2);
+                    double dySquared = Math.Pow((currentCoords.Y - y) ,2);
+
+                    if ( (dxSquared + dySquared) > radiusSquared ) continue;
+                    if (InBounds(x, y)) surroundingBlocks.Add(new MapBlock(this._map[x, y], new MapBlockCoordinates(x, y)));
+                }
+
+            return surroundingBlocks;
+        }
+
+        public bool InBounds ( int X, int Y )
+        {
+            MapBlockCoordinates coords = new MapBlockCoordinates(X, Y);
+            return InBounds(coords);
+        }
+        public bool InBounds ( MapBlockCoordinates coords )
+        {
+            if (coords.X < 0) return false;
+            if (coords.X >= this.MapSize) return false;
+            if (coords.Y < 0) return false;
+            if (coords.Y >= this.MapSize) return false;
+
+            return true;
+        }
        
         private void PlaceButtCrack()
         {
