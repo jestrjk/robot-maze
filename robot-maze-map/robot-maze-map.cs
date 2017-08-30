@@ -29,12 +29,12 @@ namespace robot_maze_map
             Buttcrack
         }
 
-        private MapBlockType[,] _map;
+        private MapBlock[,] _map;
 
         public Map(int mapSize = 20)
         {
             _mapSize = mapSize;
-            _map = new MapBlockType[mapSize, mapSize];
+            _map = new MapBlock[mapSize, mapSize];
 
             initMapArray();
             BuildWalls();
@@ -49,7 +49,7 @@ namespace robot_maze_map
                 Type = type;
             }
 
-            public MapBlockType Type { get; private set; }
+            public MapBlockType Type { get; set; }
             public MapBlockCoordinates Coordinates { get; private set; }
 
         }
@@ -69,13 +69,28 @@ namespace robot_maze_map
         {
             foreach ( MapBlock block in this )
             {
+                double chance = .001;
+
+                foreach ( MapBlock surroundingBlock in this.SurroundingBlocks( block.Coordinates ,  2 ))
+                {
+                    if ( surroundingBlock.Type == MapBlockType.Grass )
+                    {
+                        chance += .005;
+                    }
+                }
+
+                if ( ran.NextDouble() < chance )
+                {
+                    block.Type = MapBlockType.Grass;
+                }
+
 
             }
         }
 
-        public List<MapBlock> SurroundingBlocks( MapBlockCoordinates currentCoords, int radius )
+        public List<MapBlock> SurroundingBlocks(MapBlockCoordinates currentCoords, int radius)
         {
-            double radiusSquared = Math.Pow( radius, 2 ) ;
+            double radiusSquared = Math.Pow(radius, 2);
 
             List<MapBlock> surroundingBlocks = new List<MapBlock>();
 
@@ -84,14 +99,17 @@ namespace robot_maze_map
             int xEnd = currentCoords.X + radius;
             int yEnd = currentCoords.Y + radius;
 
-            for ( int x = xStart; x <= xEnd; x++ )
-                for ( int y = yStart; y <= yEnd; y++ )
+            for (int x = xStart; x <= xEnd; x++)
+                for (int y = yStart; y <= yEnd; y++)
                 {
-                    double dxSquared = Math.Pow( (currentCoords.X - x), 2);
-                    double dySquared = Math.Pow((currentCoords.Y - y) ,2);
+                    double dxSquared = Math.Pow((currentCoords.X - x), 2);
+                    double dySquared = Math.Pow((currentCoords.Y - y), 2);
 
-                    if ( (dxSquared + dySquared) > radiusSquared ) continue;
-                    if (InBounds(x, y)) surroundingBlocks.Add(new MapBlock(this._map[x, y], new MapBlockCoordinates(x, y)));
+                    if ((dxSquared + dySquared) > radiusSquared) continue;
+                    if (InBounds(x, y))
+                    {
+                        surroundingBlocks.Add(this._map[x, y]);
+                    }
                 }
 
             return surroundingBlocks;
@@ -114,7 +132,7 @@ namespace robot_maze_map
        
         private void PlaceButtCrack()
         {
-            _map[ran.Next(_mapSize), ran.Next(_mapSize)] = MapBlockType.Buttcrack;
+            _map[ran.Next(_mapSize), ran.Next(_mapSize)].Type = MapBlockType.Buttcrack;
         }
 
         private void BuildWalls()
@@ -133,7 +151,7 @@ namespace robot_maze_map
             {
                 for ( int y = yStart; y < yEnd; y++ )
                 {
-                    _map[x, y] = MapBlockType.Wall;
+                    _map[x, y].Type = MapBlockType.Wall;
                 }
             }
         }
@@ -154,8 +172,7 @@ namespace robot_maze_map
             {
                 for ( int y = 0; y < _mapSize; y++ )
                 {
-                    _map[x, y] = MapBlockType.Empty;                       
-                    
+                    _map[x, y] = new MapBlock(MapBlockType.Soil, new MapBlockCoordinates(x, y));
                 }
             }
         }
@@ -165,7 +182,7 @@ namespace robot_maze_map
             for ( int x = 0; x < MapSize; x++ )
                 for (int y = 0; y < MapSize; y++ )
                 {
-                    yield return new MapBlock(_map[x, y], new MapBlockCoordinates(x, y));
+                    yield return _map[x, y];
                 }
             
         }

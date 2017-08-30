@@ -53,6 +53,10 @@ namespace robot_maze
                         _map = new Map();
                         DisplayMap(_map);
                         break;
+                    case 'a':
+                        _map.AgeMap();
+                        DisplayMap(_map);
+                        break;
 
                     case '1':
                         blocks = _map.SurroundingBlocks(_currentCoords, 1);
@@ -104,6 +108,12 @@ namespace robot_maze
                 {
                     case Map.MapBlockType.Empty:
                         displayCharacter = ".";
+                        break;
+                    case Map.MapBlockType.Soil:
+                        displayCharacter = "o";
+                        break;
+                    case Map.MapBlockType.Grass:
+                        displayCharacter = ",";
                         break;
                     case Map.MapBlockType.Wall :
                         displayCharacter = "#";
